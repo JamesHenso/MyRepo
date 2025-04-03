@@ -30,18 +30,18 @@ typedef void (*sortAlgo)(int *, int);
 sortAlgo s[] = {selectionSort, insertionSort, binaryInsertionSort,
                 bubbleSort, shakerSort, shellSort,
                 heapSort, mergeSort, quickSort,
-                countingSort, radixSort, flashSort};
+                countingSort, radixSort, flashSort}; // Gọi hàm theo danh sách
 
 const string algoName[12] = {
     "Selection", "Insertion", "BinaryInsertion", "Bubble", "Shaker", "Shell",
-    "Heap", "Merge", "Quick", "Counting", "Radix", "Flash"};
+    "Heap", "Merge", "Quick", "Counting", "Radix", "Flash"}; // string sort
 
 const string dataDistribution[4] = {"RandomData", "SortedData", "ReverseData",
-                                    "NearlySortedData"};
+                                    "NearlySortedData"}; // 4 dataGenerator theo thầy (Data order)
 
-const int dataSize[6] = {10, 100, 200, 500, 1000, 2000};
+const int dataSize[6] = {10, 100, 200, 500, 1000, 2000}; // Data size
 
-double process(int *a, int n, sortAlgo f, int nameIdx)
+double process(int *a, int n, sortAlgo f, int nameIdx) // process time
 {
     auto start = system_clock::now();
     f(a, n);
@@ -57,7 +57,7 @@ double process(int *a, int n, sortAlgo f, int nameIdx)
     return ms;
 }
 
-bool validAlgo(const string &algo)
+bool validAlgo(const string &algo) // check tên sort sau "-a"
 {
     for (int i = 0; i < 12; i++)
     {
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     int *source = NULL;
     int *a = NULL;
 
-    for (int t = 0; t < 4; ++t)
+    for (int t = 0; t < 4; ++t) // Chạy time
     {
         cout << dataDistribution[t] << "\n";
         for (int sz = 0; sz < 6; ++sz)
@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
 
     if (argc != 7)
     {
-        cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt'";
+        cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt'"; // Lỗi đầu vào
         return 0;
     }
 
@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
 
     for (int i = 1; i < argc; i += 2)
     {
-        if (strcmp(argv[i], "-a") == 0)
+        if (strcmp(argv[i], "-a") == 0) // lấy sort_way
         {
             sort_way = argv[i + 1];
             if (!validAlgo(sort_way))
@@ -129,40 +129,40 @@ int main(int argc, char *argv[])
                 return 0;
             }
         }
-        else if (strcmp(argv[i], "-i") == 0)
+        else if (strcmp(argv[i], "-i") == 0) // input.txt file
         {
             input_file = argv[i + 1];
         }
-        else if (strcmp(argv[i], "-o") == 0)
+        else if (strcmp(argv[i], "-o") == 0) // output.txt file
         {
             output_file = argv[i + 1];
         }
         else
         {
-            cout << "Invalid argument: " << argv[i];
+            cout << "Invalid argument: " << argv[i]; // Báo lỗi khi sai cú pháp
             return 0;
         }
     }
 
-    ifstream file(input_file);
+    ifstream file(input_file); // mở file input.txt
     if (!file)
     {
         cout << "Invalid file.";
     }
     int num;
-    file >> num;
+    file >> num; // lấy n phần tử
     int arr[num];
     for (int i = 0; i < num; i++)
     {
-        file >> arr[i];
+        file >> arr[i]; // lấy giá trị phần tử
     }
     file.close();
 
-    auto it = find(begin(algoName), end(algoName), sort_way);
+    auto it = find(begin(algoName), end(algoName), sort_way); // duyệt index của sort trong string_sort
     if (it != end(algoName))
     {
-        int idx = distance(begin(algoName), it);
-        s[idx](arr, num);
+        int idx = distance(begin(algoName), it); // lấy index
+        s[idx](arr, num);                        // thực hiện sort
     }
     else
     {
@@ -178,8 +178,10 @@ int main(int argc, char *argv[])
     }
     for (int i = 0; i < num; i++)
     {
-        output << arr[i] << " ";
+        output << arr[i] << " "; // output ra file
     }
     output.close();
     return 0;
 }
+
+// CÒN THIẾU COUNTING COMPARISIONS
