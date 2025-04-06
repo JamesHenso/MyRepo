@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
     }
     int num;
     file >> num; // lấy n phần tử
-    int arr[num];
+    int* arr = new int[num];
     for (int i = 0; i < num; i++)
     {
         file >> arr[i]; // lấy giá trị phần tử
@@ -161,6 +161,7 @@ int main(int argc, char *argv[])
     else
     {
         cout << "Invalid sorting algorithm specified.";
+        delete[] arr;
         return 0;
     }
 
@@ -168,6 +169,7 @@ int main(int argc, char *argv[])
     if (!output)
     {
         cout << "Unable to open output file.";
+        delete[] arr;
         return 0;
     }
     output << num << endl;
@@ -176,5 +178,6 @@ int main(int argc, char *argv[])
         output << arr[i] << " "; // output ra file
     }
     output.close();
+    delete[] arr;
     return 0;
 }
