@@ -8,7 +8,6 @@
 #include <cstring>
 #include <fstream>
 
-#include "BinaryInsertionSort.h"
 #include "BubbleSort.h"
 #include "CountingSort.h"
 #include "DataGenerator.h"
@@ -21,19 +20,18 @@
 #include "SelectionSort.h"
 #include "ShakerSort.h"
 #include "ShellSort.h"
-#include "WriteToCSV.h"
 
 using namespace std;
 using namespace std::chrono;
-typedef void (*sortAlgo)(int *, int);
+typedef void (*sortAlgo)(int *, int, int &);
 
-sortAlgo s[] = {selectionSort, insertionSort, binaryInsertionSort,
+sortAlgo s[] = {selectionSort, insertionSort,
                 bubbleSort, shakerSort, shellSort,
                 heapSort, mergeSort, quickSort,
                 countingSort, radixSort, flashSort}; // Gọi hàm theo danh sách
 
-const string algoName[12] = {
-    "Selection", "Insertion", "BinaryInsertion", "Bubble", "Shaker", "Shell",
+const string algoName[11] = {
+    "Selection", "Insertion", "Bubble", "Shaker", "Shell",
     "Heap", "Merge", "Quick", "Counting", "Radix", "Flash"}; // string sort
 
 const string dataDistribution[4] = {"RandomData", "SortedData", "ReverseData",
@@ -41,17 +39,18 @@ const string dataDistribution[4] = {"RandomData", "SortedData", "ReverseData",
 
 const int dataSize[6] = {10, 100, 200, 500, 1000, 2000}; // Data size
 
-double process(int *a, int n, sortAlgo f, int nameIdx) // process time
+double process(int *a, int n, sortAlgo f, int nameIdx, int &counting) // process time
 {
+    counting = 0; // Reset counting before sorting
     auto start = system_clock::now();
-    f(a, n);
+    f(a, n, counting);
     auto stop = system_clock::now();
     std::chrono::duration<double, std::milli> timeCost = stop - start;
     double ms = timeCost.count();
     cout << setw(25) << left << (algoName[nameIdx] + "Sort: ") << setw(25)
          << right << fixed << setprecision(3) << ms << " ms\t->";
     if (is_sorted(a, a + n))
-        cout << "SUCCEED!\n";
+        cout << "SUCCEED! Comparisons: " << counting << "\n";
     else
         cout << "NOOOOOO!\n";
     return ms;
@@ -59,7 +58,7 @@ double process(int *a, int n, sortAlgo f, int nameIdx) // process time
 
 bool validAlgo(const string &algo) // check tên sort sau "-a"
 {
-    for (int i = 0; i < 12; i++)
+    for (int i = 0; i < 11; i++)
     {
         if (algoName[i] == algo)
             return true;
@@ -80,27 +79,20 @@ int main(int argc, char *argv[])
             int n = dataSize[sz];
             cout << "Data Size = " << n << "\n";
 
-            // create vector row containing result of each datasize
-            vector<double> row;
             double time = 0;
+            int counting = 0; // Variable to store the number of comparisons
 
             // Generate integer array
             source = new int[n];
             generateData(source, n, t);
 
             // Sort array and show the time cost
-            for (int algo = 0; algo < 12; ++algo)
+            for (int algo = 0; algo < 11; ++algo)
             {
                 restoreArray(source, a, n);
-                time = process(a, n, s[algo], algo);
-                // row.push_back(time);
+                time = process(a, n, s[algo], algo, counting);
             }
 
-            // Write result to CSV file
-            // table.push_back(make_pair("n = " + to_string(n), row));
-            // write_csv(dataDistribution[t] + ".csv", table);
-
-            // Release memory that dynamically allocated
             delete[] source;
             cout << "\n";
         }
@@ -112,7 +104,7 @@ int main(int argc, char *argv[])
 
     if (argc != 7)
     {
-        cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt'"; // Lỗi đầu vào
+        cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt>"; // Lỗi đầu vào
         return 0;
     }
 
@@ -162,7 +154,9 @@ int main(int argc, char *argv[])
     if (it != end(algoName))
     {
         int idx = distance(begin(algoName), it); // lấy index
-        s[idx](arr, num);                        // thực hiện sort
+        int counting = 0;                        // Variable to store the number of comparisons
+        s[idx](arr, num, counting);              // thực hiện sort
+        cout << "Comparisons: " << counting << "\n";
     }
     else
     {
@@ -176,6 +170,7 @@ int main(int argc, char *argv[])
         cout << "Unable to open output file.";
         return 0;
     }
+    output << num << endl;
     for (int i = 0; i < num; i++)
     {
         output << arr[i] << " "; // output ra file
@@ -183,5 +178,3 @@ int main(int argc, char *argv[])
     output.close();
     return 0;
 }
-
-// CÒN THIẾU COUNTING COMPARISIONS
