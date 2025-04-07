@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
     }
     int num;
     file >> num; // lấy n phần tử
-    int* arr = new int[num];
+    int *arr = new int[num];
     for (int i = 0; i < num; i++)
     {
         file >> arr[i]; // lấy giá trị phần tử
