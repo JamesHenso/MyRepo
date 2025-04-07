@@ -37,7 +37,7 @@ plt.grid(axis='y', color='gray', alpha=0.5)
 for x in input_sizes:
     plt.axvline(x=x, color='gray', linestyle='--', linewidth=1)
 
-plt.title('R' \
+plt.title(
 'Sorted Data', fontsize=16, fontweight='bold')
 plt.xlabel('Input Size', fontsize=12, fontweight='bold')
 plt.ylabel('Run Time (ms)', fontsize=12, fontweight='bold')
