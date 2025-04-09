@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-void mergeArray(int *a, int *a1, int n1, int *a2, int n2, int &counting)
+void mergeArray(int *a, int *a1, int n1, int *a2, int n2, long long &counting)
 {
     int pos = 0, pos1 = 0, pos2 = 0;
     while (pos1 < n1 && pos2 < n2)
@@ -25,7 +25,7 @@ void mergeArray(int *a, int *a1, int n1, int *a2, int n2, int &counting)
     counting += 4;
 }
 
-void mergeSort(int *a, int idxL, int idxR, int &counting)
+void mergeSort(int *a, int idxL, int idxR, long long &counting)
 {
     int n = idxR - idxL + 1;
     if (n <= 1)
@@ -58,7 +58,7 @@ void mergeSort(int *a, int idxL, int idxR, int &counting)
     delete[] a2;
 }
 
-void mergeSort(int *a, int n, int &counting)
+void mergeSort(int *a, int n, long long &counting)
 {
     mergeSort(a, 0, n - 1, counting);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-void flashSort(int *a, int n, int &counting)
+void flashSort(int *a, int n, long long &counting)
 {
     int m = 0.43 * n;
     int *L = new int[m]{};

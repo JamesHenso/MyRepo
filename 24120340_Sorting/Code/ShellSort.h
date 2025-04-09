@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-void shellSort(int *a, int n, int &counting)
+void shellSort(int *a, int n, long long &counting)
 {
     int i, j, tmp;
     for (int gap = n / 2; gap > 0; gap /= 2)

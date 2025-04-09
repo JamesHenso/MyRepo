@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-void insertionSort(int *a, int n, int &counting)
+void insertionSort(int *a, int n, long long &counting)
 {
     for (int i = 1; i < n; i++)
     {

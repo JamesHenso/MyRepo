@@ -1,6 +1,6 @@
 #pragma once
 
-void countingSort(int *a, int n, int &counting)
+void countingSort(int *a, int n, long long &counting)
 {
     int maxValue = a[0];
     for (int i = 1; i < n; i++)

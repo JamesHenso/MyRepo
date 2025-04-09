@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-void shakerSort(int *a, int n, int &counting)
+void shakerSort(int *a, int n, long long &counting)
 {
     bool swapped = true;
     int start = 0, end = n - 1;

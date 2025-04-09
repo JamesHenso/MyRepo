@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-void heapify(int *a, int i, int n, int &counting)
+void heapify(int *a, int i, int n, long long &counting)
 {
     int largest = i;
     int left = 2 * i + 1;
@@ -27,7 +27,7 @@ void heapify(int *a, int i, int n, int &counting)
     }
 }
 
-void heapSort(int *a, int n, int &counting)
+void heapSort(int *a, int n, long long &counting)
 {
     for (int i = n / 2 - 1; i >= 0; --i)
     {

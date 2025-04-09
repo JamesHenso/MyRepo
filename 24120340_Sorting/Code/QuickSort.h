@@ -2,7 +2,7 @@
 using namespace std;
 #include <ctime>
 
-void quickSort(int *a, int low, int high, int &counting)
+void quickSort(int *a, int low, int high, long long &counting)
 {
     int i = low;
     int j = high;
@@ -44,7 +44,7 @@ void quickSort(int *a, int low, int high, int &counting)
     }
 }
 
-void quickSort(int *a, int n, int &counting)
+void quickSort(int *a, int n, long long &counting)
 {
     quickSort(a, 0, n - 1, counting);
 }

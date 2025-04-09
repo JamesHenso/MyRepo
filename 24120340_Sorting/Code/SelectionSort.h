@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-void selectionSort(int *a, int n, int &counting)
+void selectionSort(int *a, int n, long long &counting)
 {
     int i, j, posMin;
     for (i = 0; i < n - 1; i++)

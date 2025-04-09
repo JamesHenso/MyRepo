@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-int maxBit(int *a, int n, int &counting)
+int maxBit(int *a, int n, long long &counting)
 {
     int res = 0;
     for (int i = 0; i < n; ++i)
@@ -22,7 +22,7 @@ int maxBit(int *a, int n, int &counting)
     return res;
 }
 
-void radixSort(int *a, int L, int R, int bit, int &counting)
+void radixSort(int *a, int L, int R, int bit, long long &counting)
 {
     if (bit == -1)
     {
@@ -63,7 +63,7 @@ void radixSort(int *a, int L, int R, int bit, int &counting)
     radixSort(a, i, R, bit - 1, counting);
 }
 
-void radixSort(int *a, int n, int &counting)
+void radixSort(int *a, int n, long long &counting)
 {
     int bit = maxBit(a, n, counting);
     radixSort(a, 0, n - 1, bit, counting);

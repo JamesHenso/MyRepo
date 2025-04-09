@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 
-void bubbleSort(int *a, int n, int &counting)
+void bubbleSort(int *a, int n, long long & counting)
 {
     for (int i = 0; i < n - 1; ++i)
     {

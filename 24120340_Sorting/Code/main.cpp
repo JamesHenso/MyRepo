@@ -23,7 +23,7 @@
 
 using namespace std;
 using namespace std::chrono;
-typedef void (*sortAlgo)(int *, int, int &);
+typedef void (*sortAlgo)(int *, int, long long &);
 
 sortAlgo s[] = {selectionSort, insertionSort,
                 bubbleSort, shakerSort, shellSort,
@@ -39,7 +39,7 @@ const string dataDistribution[4] = {"RandomData", "SortedData", "ReverseData",
 
 const int dataSize[4] = {10000, 30000, 50000, 100000};
 
-double process(int *a, int n, sortAlgo f, int nameIdx, int &counting) // process time
+double process(int *a, int n, sortAlgo f, int nameIdx, long long &counting) // process time
 {
     counting = 0; // Reset counting before sorting
     auto start = system_clock::now();
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
             cout << "Data Size = " << n << "\n";
 
             double time = 0;
-            int counting = 0; // Variable to store the number of comparisons
+            long long counting = 0; // Variable to store the number of comparisons
 
             // Generate integer array
             source = new int[n];
@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
     if (it != end(algoName))
     {
         int idx = distance(begin(algoName), it); // lấy index
-        int counting = 0;                        // Variable to store the number of comparisons
+        long long counting = 0;                        // Variable to store the number of comparisons
         s[idx](arr, num, counting);              // thực hiện sort
         cout << "Comparisons: " << counting << "\n";
     }
