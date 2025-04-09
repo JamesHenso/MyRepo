@@ -37,7 +37,7 @@ const string algoName[11] = {
 const string dataDistribution[4] = {"RandomData", "SortedData", "ReverseData",
                                     "NearlySortedData"};
 
-const int dataSize[6] = {10, 100, 200, 500, 1000, 2000};
+const int dataSize[4] = {10000, 30000, 50000, 100000};
 
 double process(int *a, int n, sortAlgo f, int nameIdx, int &counting) // process time
 {
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
     for (int t = 0; t < 4; ++t)
     {
         cout << dataDistribution[t] << "\n";
-        for (int sz = 0; sz < 6; ++sz)
+        for (int sz = 0; sz < 4; ++sz)
         {
             int n = dataSize[sz];
             cout << "Data Size = " << n << "\n";
@@ -105,7 +105,6 @@ int main(int argc, char *argv[])
     if (argc != 7)
     {
         cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt>"; // Lỗi đầu vào
-        cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt'";
         return 0;
     }
 
