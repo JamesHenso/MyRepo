@@ -1,0 +1,219 @@
+RandomData
+Data Size = 10000
+SelectionSort:                              39.786 ms   ->SUCCEED! Comparisons: 100000001
+InsertionSort:                              26.707 ms   ->SUCCEED! Comparisons: 49705518
+BubbleSort:                                141.573 ms   ->SUCCEED! Comparisons: 100000001
+ShakerSort:                                122.885 ms   ->SUCCEED! Comparisons: 75309043
+ShellSort:                                   1.015 ms   ->SUCCEED! Comparisons: 264891
+HeapSort:                                    1.104 ms   ->SUCCEED! Comparisons: 295824
+MergeSort:                                   9.045 ms   ->SUCCEED! Comparisons: 578290
+QuickSort:                                   0.646 ms   ->SUCCEED! Comparisons: 214098
+CountingSort:                                0.812 ms   ->SUCCEED! Comparisons: 639982
+RadixSort:                                   1.223 ms   ->SUCCEED! Comparisons: 661257
+FlashSort:                                   0.217 ms   ->SUCCEED! Comparisons: 81372
+
+Data Size = 30000
+SelectionSort:                             355.490 ms   ->SUCCEED! Comparisons: 900000001
+InsertionSort:                             242.868 ms   ->SUCCEED! Comparisons: 451310384
+BubbleSort:                               1472.181 ms   ->SUCCEED! Comparisons: 900000001
+ShakerSort:                               1168.559 ms   ->SUCCEED! Comparisons: 674549779
+ShellSort:                                   3.496 ms   ->SUCCEED! Comparisons: 991201
+HeapSort:                                    3.685 ms   ->SUCCEED! Comparisons: 1005892
+MergeSort:                                  22.889 ms   ->SUCCEED! Comparisons: 1921770
+QuickSort:                                   2.027 ms   ->SUCCEED! Comparisons: 715577
+CountingSort:                                1.010 ms   ->SUCCEED! Comparisons: 720004
+RadixSort:                                   3.969 ms   ->SUCCEED! Comparisons: 2070317
+FlashSort:                                   0.696 ms   ->SUCCEED! Comparisons: 234772
+
+Data Size = 50000
+SelectionSort:                             987.832 ms   ->SUCCEED! Comparisons: 2500000001
+InsertionSort:                             668.531 ms   ->SUCCEED! Comparisons: 1247791900
+BubbleSort:                               4244.886 ms   ->SUCCEED! Comparisons: 2500000001
+ShakerSort:                               3278.439 ms   ->SUCCEED! Comparisons: 1869236779
+ShellSort:                                   6.591 ms   ->SUCCEED! Comparisons: 1920719
+HeapSort:                                    6.608 ms   ->SUCCEED! Comparisons: 1768382
+MergeSort:                                  28.454 ms   ->SUCCEED! Comparisons: 3355070
+QuickSort:                                   3.567 ms   ->SUCCEED! Comparisons: 1212696
+CountingSort:                                1.065 ms   ->SUCCEED! Comparisons: 799996
+RadixSort:                                   6.484 ms   ->SUCCEED! Comparisons: 3495143
+FlashSort:                                   1.133 ms   ->SUCCEED! Comparisons: 357696
+
+Data Size = 100000
+SelectionSort:                            3997.733 ms   ->SUCCEED! Comparisons: 10000000001
+InsertionSort:                            2690.082 ms   ->SUCCEED! Comparisons: 4987747430
+BubbleSort:                              17457.514 ms   ->SUCCEED! Comparisons: 10000000001
+ShakerSort:                              13195.826 ms   ->SUCCEED! Comparisons: 7495798239
+ShellSort:                                  14.527 ms   ->SUCCEED! Comparisons: 4283747
+HeapSort:                                   14.317 ms   ->SUCCEED! Comparisons: 3787628
+MergeSort:                                 129.436 ms   ->SUCCEED! Comparisons: 7110504
+QuickSort:                                   7.491 ms   ->SUCCEED! Comparisons: 2576704
+CountingSort:                                1.660 ms   ->SUCCEED! Comparisons: 1000002
+RadixSort:                                  13.141 ms   ->SUCCEED! Comparisons: 7038322
+FlashSort:                                   2.244 ms   ->SUCCEED! Comparisons: 741979
+
+*************************************
+
+SortedData
+Data Size = 10000
+SelectionSort:                              38.913 ms   ->SUCCEED! Comparisons: 100000001
+InsertionSort:                               0.014 ms   ->SUCCEED! Comparisons: 10002
+BubbleSort:                                 38.043 ms   ->SUCCEED! Comparisons: 100000001
+ShakerSort:                                  0.008 ms   ->SUCCEED! Comparisons: 20003
+ShellSort:                                   0.188 ms   ->SUCCEED! Comparisons: 120019
+HeapSort:                                    0.873 ms   ->SUCCEED! Comparisons: 317543
+MergeSort:                                2342.033 ms   ->SUCCEED! Comparisons: 466442
+QuickSort:                                   0.133 ms   ->SUCCEED! Comparisons: 149054
+CountingSort:                                0.355 ms   ->SUCCEED! Comparisons: 60004
+RadixSort:                                   0.366 ms   ->SUCCEED! Comparisons: 523668
+FlashSort:                                   0.350 ms   ->SUCCEED! Comparisons: 85704
+
+Data Size = 30000
+SelectionSort:                             361.140 ms   ->SUCCEED! Comparisons: 900000001
+InsertionSort:                               0.041 ms   ->SUCCEED! Comparisons: 30002
+BubbleSort:                                369.461 ms   ->SUCCEED! Comparisons: 900000001
+ShakerSort:                                  0.024 ms   ->SUCCEED! Comparisons: 60003
+ShellSort:                                   0.601 ms   ->SUCCEED! Comparisons: 390022
+HeapSort:                                    2.793 ms   ->SUCCEED! Comparisons: 1065472
+MergeSort:                                4792.316 ms   ->SUCCEED! Comparisons: 1543466
+QuickSort:                                   0.442 ms   ->SUCCEED! Comparisons: 485545
+CountingSort:                                0.410 ms   ->SUCCEED! Comparisons: 180004
+RadixSort:                                   1.080 ms   ->SUCCEED! Comparisons: 1677276
+FlashSort:                                   0.588 ms   ->SUCCEED! Comparisons: 257104
+
+Data Size = 50000
+SelectionSort:                             998.608 ms   ->SUCCEED! Comparisons: 2500000001
+InsertionSort:                               0.073 ms   ->SUCCEED! Comparisons: 50002
+BubbleSort:                               1030.571 ms   ->SUCCEED! Comparisons: 2500000001
+ShakerSort:                                  0.042 ms   ->SUCCEED! Comparisons: 100003
+ShellSort:                                   1.081 ms   ->SUCCEED! Comparisons: 700022
+HeapSort:                                    4.887 ms   ->SUCCEED! Comparisons: 1873143
+MergeSort:                                2817.636 ms   ->SUCCEED! Comparisons: 2683946
+QuickSort:                                   0.799 ms   ->SUCCEED! Comparisons: 881082
+CountingSort:                                0.463 ms   ->SUCCEED! Comparisons: 300004
+RadixSort:                                   1.852 ms   ->SUCCEED! Comparisons: 2934524
+FlashSort:                                   0.804 ms   ->SUCCEED! Comparisons: 428504
+
+Data Size = 100000
+SelectionSort:                            4048.941 ms   ->SUCCEED! Comparisons: 10000000001
+InsertionSort:                               0.134 ms   ->SUCCEED! Comparisons: 100002
+BubbleSort:                               3848.054 ms   ->SUCCEED! Comparisons: 10000000001
+ShakerSort:                                  0.084 ms   ->SUCCEED! Comparisons: 200003
+ShellSort:                                   2.268 ms   ->SUCCEED! Comparisons: 1500023
+HeapSort:                                   10.541 ms   ->SUCCEED! Comparisons: 4004034
+MergeSort:                               12541.256 ms   ->SUCCEED! Comparisons: 5667898
+QuickSort:                                   1.552 ms   ->SUCCEED! Comparisons: 1862155
+CountingSort:                                0.996 ms   ->SUCCEED! Comparisons: 600004
+RadixSort:                                   4.159 ms   ->SUCCEED! Comparisons: 6168988
+FlashSort:                                   1.476 ms   ->SUCCEED! Comparisons: 857004
+
+*************************************
+
+ReverseData
+Data Size = 10000
+SelectionSort:                              45.818 ms   ->SUCCEED! Comparisons: 100000001
+InsertionSort:                              54.403 ms   ->SUCCEED! Comparisons: 100000002
+BubbleSort:                                135.897 ms   ->SUCCEED! Comparisons: 100000001
+ShakerSort:                                145.802 ms   ->SUCCEED! Comparisons: 100000003
+ShellSort:                                   0.275 ms   ->SUCCEED! Comparisons: 182579
+HeapSort:                                    0.892 ms   ->SUCCEED! Comparisons: 275318
+MergeSort:                                 799.257 ms   ->SUCCEED! Comparisons: 475242
+QuickSort:                                   0.129 ms   ->SUCCEED! Comparisons: 149071
+CountingSort:                                0.176 ms   ->SUCCEED! Comparisons: 60004
+RadixSort:                                   0.378 ms   ->SUCCEED! Comparisons: 528668
+FlashSort:                                   0.217 ms   ->SUCCEED! Comparisons: 75658
+
+Data Size = 30000
+SelectionSort:                             418.561 ms   ->SUCCEED! Comparisons: 900000001
+InsertionSort:                             482.003 ms   ->SUCCEED! Comparisons: 900000002
+BubbleSort:                               1201.574 ms   ->SUCCEED! Comparisons: 900000001
+ShakerSort:                               1311.420 ms   ->SUCCEED! Comparisons: 900000003
+ShellSort:                                   0.976 ms   ->SUCCEED! Comparisons: 597014
+HeapSort:                                    2.755 ms   ->SUCCEED! Comparisons: 945750
+MergeSort:                                8512.893 ms   ->SUCCEED! Comparisons: 1559914
+QuickSort:                                   0.461 ms   ->SUCCEED! Comparisons: 485557
+CountingSort:                                0.430 ms   ->SUCCEED! Comparisons: 180004
+RadixSort:                                   1.231 ms   ->SUCCEED! Comparisons: 1692276
+FlashSort:                                   0.438 ms   ->SUCCEED! Comparisons: 226958
+
+Data Size = 50000
+SelectionSort:                            1156.649 ms   ->SUCCEED! Comparisons: 2500000001
+InsertionSort:                            1340.084 ms   ->SUCCEED! Comparisons: 2500000002
+BubbleSort:                               3361.100 ms   ->SUCCEED! Comparisons: 2500000001
+ShakerSort:                               3646.743 ms   ->SUCCEED! Comparisons: 2500000003
+ShellSort:                                   1.616 ms   ->SUCCEED! Comparisons: 1097302
+HeapSort:                                    5.047 ms   ->SUCCEED! Comparisons: 1663525
+MergeSort:                                8689.299 ms   ->SUCCEED! Comparisons: 2722826
+QuickSort:                                   0.760 ms   ->SUCCEED! Comparisons: 881095
+CountingSort:                                0.504 ms   ->SUCCEED! Comparisons: 300004
+RadixSort:                                   2.087 ms   ->SUCCEED! Comparisons: 2959524
+FlashSort:                                   0.715 ms   ->SUCCEED! Comparisons: 378258
+
+Data Size = 100000
+SelectionSort:                            4611.287 ms   ->SUCCEED! Comparisons: 10000000001
+InsertionSort:                            5351.331 ms   ->SUCCEED! Comparisons: 10000000002
+BubbleSort:                              13446.743 ms   ->SUCCEED! Comparisons: 10000000001
+ShakerSort:                              14540.833 ms   ->SUCCEED! Comparisons: 10000000003
+ShellSort:                                   3.468 ms   ->SUCCEED! Comparisons: 2344583
+HeapSort:                                   10.337 ms   ->SUCCEED! Comparisons: 3572247
+MergeSort:                                 124.215 ms   ->SUCCEED! Comparisons: 5745658
+QuickSort:                                   1.723 ms   ->SUCCEED! Comparisons: 1862169
+CountingSort:                                1.503 ms   ->SUCCEED! Comparisons: 600004
+RadixSort:                                   4.423 ms   ->SUCCEED! Comparisons: 6218988
+FlashSort:                                   1.566 ms   ->SUCCEED! Comparisons: 756508
+
+*************************************
+
+NearlySortedData
+Data Size = 10000
+SelectionSort:                              39.662 ms   ->SUCCEED! Comparisons: 100000001
+InsertionSort:                               0.081 ms   ->SUCCEED! Comparisons: 131422
+BubbleSort:                                 38.901 ms   ->SUCCEED! Comparisons: 100000001
+ShakerSort:                                  0.232 ms   ->SUCCEED! Comparisons: 259835
+ShellSort:                                   0.260 ms   ->SUCCEED! Comparisons: 141565
+HeapSort:                                    0.934 ms   ->SUCCEED! Comparisons: 317059
+MergeSort:                                2342.360 ms   ->SUCCEED! Comparisons: 497924
+QuickSort:                                   0.143 ms   ->SUCCEED! Comparisons: 149054
+CountingSort:                                0.351 ms   ->SUCCEED! Comparisons: 60004
+RadixSort:                                   0.374 ms   ->SUCCEED! Comparisons: 523684
+FlashSort:                                   0.337 ms   ->SUCCEED! Comparisons: 85689
+
+Data Size = 30000
+SelectionSort:                             360.831 ms   ->SUCCEED! Comparisons: 900000001
+InsertionSort:                               0.276 ms   ->SUCCEED! Comparisons: 461106
+BubbleSort:                                348.186 ms   ->SUCCEED! Comparisons: 900000001
+ShakerSort:                                  0.873 ms   ->SUCCEED! Comparisons: 1019715
+ShellSort:                                   0.956 ms   ->SUCCEED! Comparisons: 458596
+HeapSort:                                    2.897 ms   ->SUCCEED! Comparisons: 1065368
+MergeSort:                                4785.110 ms   ->SUCCEED! Comparisons: 1637332
+QuickSort:                                   0.438 ms   ->SUCCEED! Comparisons: 485545
+CountingSort:                                0.402 ms   ->SUCCEED! Comparisons: 180004
+RadixSort:                                   1.157 ms   ->SUCCEED! Comparisons: 1677302
+FlashSort:                                   0.599 ms   ->SUCCEED! Comparisons: 257089
+
+Data Size = 50000
+SelectionSort:                            1012.615 ms   ->SUCCEED! Comparisons: 2500000001
+InsertionSort:                               0.530 ms   ->SUCCEED! Comparisons: 894722
+BubbleSort:                               1035.681 ms   ->SUCCEED! Comparisons: 2500000001
+ShakerSort:                                  2.303 ms   ->SUCCEED! Comparisons: 1699715
+ShellSort:                                   1.633 ms   ->SUCCEED! Comparisons: 852756
+HeapSort:                                    5.113 ms   ->SUCCEED! Comparisons: 1872957
+MergeSort:                                2818.626 ms   ->SUCCEED! Comparisons: 2852164
+QuickSort:                                   0.761 ms   ->SUCCEED! Comparisons: 881082
+CountingSort:                                0.452 ms   ->SUCCEED! Comparisons: 300004
+RadixSort:                                   2.137 ms   ->SUCCEED! Comparisons: 2934554
+FlashSort:                                   0.807 ms   ->SUCCEED! Comparisons: 428491
+
+Data Size = 100000
+SelectionSort:                            4014.443 ms   ->SUCCEED! Comparisons:10000000001
+InsertionSort:                               0.827 ms   ->SUCCEED! Comparisons: 1358446
+BubbleSort:                               4178.172 ms   ->SUCCEED! Comparisons:10000000001
+ShakerSort:                                  2.558 ms   ->SUCCEED! Comparisons: 2999779
+ShellSort:                                   3.123 ms   ->SUCCEED! Comparisons: 1755741
+HeapSort:                                   10.947 ms   ->SUCCEED! Comparisons: 4003046
+MergeSort:                               12540.394 ms   ->SUCCEED! Comparisons: 5985384
+QuickSort:                                   1.680 ms   ->SUCCEED! Comparisons: 1862155
+CountingSort:                                0.996 ms   ->SUCCEED! Comparisons: 600004
+RadixSort:                                   4.254 ms   ->SUCCEED! Comparisons: 6169010
+FlashSort:                                   1.483 ms   ->SUCCEED! Comparisons: 856989
+
+*************************************
