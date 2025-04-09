@@ -28,16 +28,16 @@ typedef void (*sortAlgo)(int *, int, int &);
 sortAlgo s[] = {selectionSort, insertionSort,
                 bubbleSort, shakerSort, shellSort,
                 heapSort, mergeSort, quickSort,
-                countingSort, radixSort, flashSort}; // Gọi hàm theo danh sách
+                countingSort, radixSort, flashSort};
 
 const string algoName[11] = {
     "Selection", "Insertion", "Bubble", "Shaker", "Shell",
     "Heap", "Merge", "Quick", "Counting", "Radix", "Flash"}; // string sort
 
 const string dataDistribution[4] = {"RandomData", "SortedData", "ReverseData",
-                                    "NearlySortedData"}; // 4 dataGenerator theo thầy (Data order)
+                                    "NearlySortedData"};
 
-const int dataSize[6] = {10, 100, 200, 500, 1000, 2000}; // Data size
+const int dataSize[6] = {10, 100, 200, 500, 1000, 2000};
 
 double process(int *a, int n, sortAlgo f, int nameIdx, int &counting) // process time
 {
@@ -56,7 +56,7 @@ double process(int *a, int n, sortAlgo f, int nameIdx, int &counting) // process
     return ms;
 }
 
-bool validAlgo(const string &algo) // check tên sort sau "-a"
+bool validAlgo(const string &algo)
 {
     for (int i = 0; i < 11; i++)
     {
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     int *source = NULL;
     int *a = NULL;
 
-    for (int t = 0; t < 4; ++t) // Chạy time
+    for (int t = 0; t < 4; ++t)
     {
         cout << dataDistribution[t] << "\n";
         for (int sz = 0; sz < 6; ++sz)
@@ -105,6 +105,7 @@ int main(int argc, char *argv[])
     if (argc != 7)
     {
         cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt>"; // Lỗi đầu vào
+        cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt'";
         return 0;
     }
 
@@ -112,7 +113,7 @@ int main(int argc, char *argv[])
 
     for (int i = 1; i < argc; i += 2)
     {
-        if (strcmp(argv[i], "-a") == 0) // lấy sort_way
+        if (strcmp(argv[i], "-a") == 0)
         {
             sort_way = argv[i + 1];
             if (!validAlgo(sort_way))
@@ -121,22 +122,22 @@ int main(int argc, char *argv[])
                 return 0;
             }
         }
-        else if (strcmp(argv[i], "-i") == 0) // input.txt file
+        else if (strcmp(argv[i], "-i") == 0)
         {
             input_file = argv[i + 1];
         }
-        else if (strcmp(argv[i], "-o") == 0) // output.txt file
+        else if (strcmp(argv[i], "-o") == 0)
         {
             output_file = argv[i + 1];
         }
         else
         {
-            cout << "Invalid argument: " << argv[i]; // Báo lỗi khi sai cú pháp
+            cout << "Invalid argument: " << argv[i];
             return 0;
         }
     }
 
-    ifstream file(input_file); // mở file input.txt
+    ifstream file(input_file);
     if (!file)
     {
         cout << "Invalid file.";
@@ -150,7 +151,7 @@ int main(int argc, char *argv[])
     }
     file.close();
 
-    auto it = find(begin(algoName), end(algoName), sort_way); // duyệt index của sort trong string_sort
+    auto it = find(begin(algoName), end(algoName), sort_way);
     if (it != end(algoName))
     {
         int idx = distance(begin(algoName), it); // lấy index
