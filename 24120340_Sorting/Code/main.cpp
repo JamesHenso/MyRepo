@@ -1,14 +1,11 @@
 #include <algorithm>
-#include <chrono>
-#include <ctime>
 #include <iomanip>
 #include <iostream>
 #include <string>
-#include <vector>
 #include <cstring>
 #include <fstream>
+#include <sstream>
 
-#include "BinaryInsertionSort.h"
 #include "BubbleSort.h"
 #include "CountingSort.h"
 #include "DataGenerator.h"
@@ -21,98 +18,33 @@
 #include "SelectionSort.h"
 #include "ShakerSort.h"
 #include "ShellSort.h"
-#include "WriteToCSV.h"
 
 using namespace std;
-using namespace std::chrono;
+
 typedef void (*sortAlgo)(int *, int);
 
-sortAlgo s[] = {selectionSort, insertionSort, binaryInsertionSort,
+sortAlgo s[] = {selectionSort, insertionSort,
                 bubbleSort, shakerSort, shellSort,
                 heapSort, mergeSort, quickSort,
                 countingSort, radixSort, flashSort};
 
-const string algoName[12] = {
-    "Selection", "Insertion", "BinaryInsertion", "Bubble", "Shaker", "Shell",
-    "Heap", "Merge", "Quick", "Counting", "Radix", "Flash"};
-
-const string dataDistribution[4] = {"RandomData", "SortedData", "ReverseData",
-                                    "NearlySortedData"};
-
-const int dataSize[6] = {10, 100, 200, 500, 1000, 2000};
-
-double process(int *a, int n, sortAlgo f, int nameIdx)
-{
-    auto start = system_clock::now();
-    f(a, n);
-    auto stop = system_clock::now();
-    std::chrono::duration<double, std::milli> timeCost = stop - start;
-    double ms = timeCost.count();
-    cout << setw(25) << left << (algoName[nameIdx] + "Sort: ") << setw(25)
-         << right << fixed << setprecision(3) << ms << " ms\t->";
-    if (is_sorted(a, a + n))
-        cout << "SUCCEED!\n";
-    else
-        cout << "NOOOOOO!\n";
-    return ms;
-}
+const string algoName[11] = {
+    "selection", "insertion", "bubble", "shaker", "shell",
+    "heap", "merge", "quick", "counting", "radix", "flash"}; // string sort
 
 bool validAlgo(const string &algo)
 {
-    for (int i = 0; i < 12; i++)
-    {
-        if (algoName[i] == algo)
-            return true;
-    }
-    return false;
+    return find(begin(algoName), end(algoName), algo) != end(algoName);
 }
 
 int main(int argc, char *argv[])
 {
-    int *source = NULL;
-    int *a = NULL;
-
-    for (int t = 0; t < 4; ++t)
-    {
-        cout << dataDistribution[t] << "\n";
-        for (int sz = 0; sz < 6; ++sz)
-        {
-            int n = dataSize[sz];
-            cout << "Data Size = " << n << "\n";
-
-            // create vector row containing result of each datasize
-            vector<double> row;
-            double time = 0;
-
-            // Generate integer array
-            source = new int[n];
-            generateData(source, n, t);
-
-            // Sort array and show the time cost
-            for (int algo = 0; algo < 12; ++algo)
-            {
-                restoreArray(source, a, n);
-                time = process(a, n, s[algo], algo);
-                // row.push_back(time);
-            }
-
-            // Write result to CSV file
-            // table.push_back(make_pair("n = " + to_string(n), row));
-            // write_csv(dataDistribution[t] + ".csv", table);
-
-            // Release memory that dynamically allocated
-            delete[] source;
-            cout << "\n";
-        }
-
-        cout << "*************************************\n\n";
-    }
 
     // Chose the way to sort array
 
     if (argc != 7)
     {
-        cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt'";
+        cout << "./main.ext -a <sort_way> -i <input_txt> -o <output_txt>"; // Lỗi đầu vào
         return 0;
     }
 
@@ -122,7 +54,9 @@ int main(int argc, char *argv[])
     {
         if (strcmp(argv[i], "-a") == 0)
         {
-            sort_way = argv[i + 1];
+            string get_str = argv[i + 1];
+            size_t pos = get_str.find('-');
+            sort_way = (pos != string::npos) ? get_str.substr(0, pos) : get_str;
             if (!validAlgo(sort_way))
             {
                 cout << "Invalid sorting algorithm.";
@@ -150,23 +84,30 @@ int main(int argc, char *argv[])
         cout << "Invalid file.";
     }
     int num;
-    file >> num;
-    int arr[num];
+
+    if (num <= 0)
+    {
+        cout << "Missing size.";
+        return 0;
+    }
+    file >> num; // lấy n phần tử
+    int *arr = new int[num];
     for (int i = 0; i < num; i++)
     {
-        file >> arr[i];
+        file >> arr[i]; // lấy giá trị phần tử
     }
     file.close();
 
     auto it = find(begin(algoName), end(algoName), sort_way);
     if (it != end(algoName))
     {
-        int idx = distance(begin(algoName), it);
-        s[idx](arr, num);
+        int idx = distance(begin(algoName), it); // lấy index
+        s[idx](arr, num);                        // thực hiện sort
     }
     else
     {
         cout << "Invalid sorting algorithm specified.";
+        delete[] arr;
         return 0;
     }
 
@@ -174,12 +115,15 @@ int main(int argc, char *argv[])
     if (!output)
     {
         cout << "Unable to open output file.";
+        delete[] arr;
         return 0;
     }
+    output << num << endl;
     for (int i = 0; i < num; i++)
     {
-        output << arr[i] << " ";
+        output << arr[i] << " "; // output ra file
     }
     output.close();
+    delete[] arr;
     return 0;
 }
