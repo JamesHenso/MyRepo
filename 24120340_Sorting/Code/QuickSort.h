@@ -2,7 +2,7 @@
 using namespace std;
 #include <ctime>
 
-void quickSort(int *a, int low, int high, long long &counting)
+void quickSort(int *a, int low, int high)
 {
     int i = low;
     int j = high;
@@ -11,15 +11,12 @@ void quickSort(int *a, int low, int high, long long &counting)
 
     while (i <= j)
     {
-        counting += 2;
         while (a[i] < pivot)
         {
             i++;
-            counting++;
         }
         while (a[j] > pivot)
         {
-            counting++;
             j--;
         }
         if (i <= j)
@@ -31,20 +28,17 @@ void quickSort(int *a, int low, int high, long long &counting)
             j--;
         }
     }
-    counting += 3;
     if (j > low)
     {
-        counting++;
-        quickSort(a, low, j, counting);
+        quickSort(a, low, j);
     }
     if (i < high)
     {
-        counting++;
-        quickSort(a, i, high, counting);
+        quickSort(a, i, high);
     }
 }
 
-void quickSort(int *a, int n, long long &counting)
+void quickSort(int *a, int n)
 {
-    quickSort(a, 0, n - 1, counting);
+    quickSort(a, 0, n - 1);
 }

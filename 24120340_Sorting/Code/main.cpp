@@ -1,12 +1,10 @@
 #include <algorithm>
-#include <chrono>
-#include <ctime>
 #include <iomanip>
 #include <iostream>
 #include <string>
-#include <vector>
 #include <cstring>
 #include <fstream>
+#include <sstream>
 
 #include "BubbleSort.h"
 #include "CountingSort.h"
@@ -22,8 +20,8 @@
 #include "ShellSort.h"
 
 using namespace std;
-using namespace std::chrono;
-typedef void (*sortAlgo)(int *, int, long long &);
+
+typedef void (*sortAlgo)(int *, int);
 
 sortAlgo s[] = {selectionSort, insertionSort,
                 bubbleSort, shakerSort, shellSort,
@@ -31,80 +29,22 @@ sortAlgo s[] = {selectionSort, insertionSort,
                 countingSort, radixSort, flashSort};
 
 const string algoName[11] = {
-    "Selection", "Insertion", "Bubble", "Shaker", "Shell",
-    "Heap", "Merge", "Quick", "Counting", "Radix", "Flash"}; // string sort
-
-const string dataDistribution[4] = {"RandomData", "SortedData", "ReverseData",
-                                    "NearlySortedData"};
-
-const int dataSize[4] = {10000, 30000, 50000, 100000};
-
-double process(int *a, int n, sortAlgo f, int nameIdx, long long &counting) // process time
-{
-    counting = 0; // Reset counting before sorting
-    auto start = system_clock::now();
-    f(a, n, counting);
-    auto stop = system_clock::now();
-    std::chrono::duration<double, std::milli> timeCost = stop - start;
-    double ms = timeCost.count();
-    cout << setw(25) << left << (algoName[nameIdx] + "Sort: ") << setw(25)
-         << right << fixed << setprecision(3) << ms << " ms\t->";
-    if (is_sorted(a, a + n))
-        cout << "SUCCEED! Comparisons: " << counting << "\n";
-    else
-        cout << "NOOOOOO!\n";
-    return ms;
-}
+    "selection", "insertion", "bubble", "shaker", "shell",
+    "heap", "merge", "quick", "counting", "radix", "flash"}; // string sort
 
 bool validAlgo(const string &algo)
 {
-    for (int i = 0; i < 11; i++)
-    {
-        if (algoName[i] == algo)
-            return true;
-    }
-    return false;
+    return find(begin(algoName), end(algoName), algo) != end(algoName);
 }
 
 int main(int argc, char *argv[])
 {
-    int *source = NULL;
-    int *a = NULL;
-
-    for (int t = 0; t < 4; ++t)
-    {
-        cout << dataDistribution[t] << "\n";
-        for (int sz = 0; sz < 4; ++sz)
-        {
-            int n = dataSize[sz];
-            cout << "Data Size = " << n << "\n";
-
-            double time = 0;
-            long long counting = 0; // Variable to store the number of comparisons
-
-            // Generate integer array
-            source = new int[n];
-            generateData(source, n, t);
-
-            // Sort array and show the time cost
-            for (int algo = 0; algo < 11; ++algo)
-            {
-                restoreArray(source, a, n);
-                time = process(a, n, s[algo], algo, counting);
-            }
-
-            delete[] source;
-            cout << "\n";
-        }
-
-        cout << "*************************************\n\n";
-    }
 
     // Chose the way to sort array
 
     if (argc != 7)
     {
-        cout << "./main.ext -a <Sort_way> -i <input_txt> -o <output_txt>"; // Lỗi đầu vào
+        cout << "./main.ext -a <sort_way> -i <input_txt> -o <output_txt>"; // Lỗi đầu vào
         return 0;
     }
 
@@ -114,7 +54,9 @@ int main(int argc, char *argv[])
     {
         if (strcmp(argv[i], "-a") == 0)
         {
-            sort_way = argv[i + 1];
+            string get_str = argv[i + 1];
+            size_t pos = get_str.find('-');
+            sort_way = (pos != string::npos) ? get_str.substr(0, pos) : get_str;
             if (!validAlgo(sort_way))
             {
                 cout << "Invalid sorting algorithm.";
@@ -142,6 +84,12 @@ int main(int argc, char *argv[])
         cout << "Invalid file.";
     }
     int num;
+
+    if (num <= 0)
+    {
+        cout << "Missing size.";
+        return 0;
+    }
     file >> num; // lấy n phần tử
     int *arr = new int[num];
     for (int i = 0; i < num; i++)
@@ -154,9 +102,7 @@ int main(int argc, char *argv[])
     if (it != end(algoName))
     {
         int idx = distance(begin(algoName), it); // lấy index
-        long long counting = 0;                        // Variable to store the number of comparisons
-        s[idx](arr, num, counting);              // thực hiện sort
-        cout << "Comparisons: " << counting << "\n";
+        s[idx](arr, num);                        // thực hiện sort
     }
     else
     {
